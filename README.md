@@ -5,7 +5,7 @@ This repo contains code for training an ensemble of BERT models to autocode inju
 BERT stands for Bidirectional Encoder Representations from Transformers. One of the newer large-scale contextual language models, it's a good baseline for a wide variety of downstream NLP tasks. To learn more about how the base model is trained, check out the paper on [arXiv](https://arxiv.org/abs/1810.04805). To see how folks from Google implemented it in TensorFlow, check out the original [repo](https://github.com/google-research/bert) on GitHub, which we've also included here (but not updated in while, so you may want to pull down a fresh copy).
 
 ### Task
-Our task here was to classify free-text injury narratives using [OIICS](https://wwwn.cdc.gov/wisards/oiics/Trees/MultiTree.aspx?Year=2012) event codes. The project was for a Kaggle-like competition internal to CDC, which you can read about [here](https://www.cdc.gov/od/science/technology/innovation/innovationfund.htm). In our data, there were 47 classifiable event codes distributed across 7 categories:
+Building on recent research on autocoding injury narratives, like that in [Measure 2014](https://www.bls.gov/iif/deep-neural-networks.pdf) and in [Bertke et al. 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4915551/), our task here was to classify free-text injury narratives using [OIICS](https://wwwn.cdc.gov/wisards/oiics/Trees/MultiTree.aspx?Year=2012) event codes. The project was for a Kaggle-like competition internal to CDC, which you can read about [here](https://www.cdc.gov/od/science/technology/innovation/innovationfund.htm). In our data, there were 47 classifiable event codes distributed across 7 categories:
 
   1. Violence and other injuries by persons and animals
   2. Transportation incidents
