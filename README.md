@@ -18,7 +18,12 @@ Our task here was to classify free-text injury narratives using [OIICS](https://
 Events not belonging to one of these categories were marked with with code 99, making for a grand total of 48 event codes. Since each narrative only receives a single code, we formulated the problem as one of multiclass classification.
 
 ## Code
-The main scripts are the two .bat files. To fine-tune the base BERT checkpoint on your own data, train the model with ```train.bat```, and then update the ckeckpoint number in the call to ```run_classifer.py``` in ```test.bat``` to reflect the last checkpoint saved during training. To use our fine-tuned checkpoints to get predictions on your own data, simply run ```test.bat```, leaving the checkpoint number the same. In both cases, you'll want to have run ```src\preprocessing.py``` on 
+The main scripts are the two ```.bat``` files. To fine-tune the base BERT checkpoint on your own data, train the model with ```train.bat```, and then update the ckeckpoint number in the call to ```bert\run_classifer.py``` in ```test.bat``` to reflect the last checkpoint saved during training. To use our fine-tuned checkpoints to get predictions on your own data, simply run ```test.bat```, leaving the checkpoint number the same. In both cases, you'll want to have run ```src\preprocessing.py``` on your raw text files, which should have the structure outlined in the Data section below. 
 
 ## Data
-To get the data, including the small base BERT model we fine-tuned to classify the narratives, download [this .zip file](https://www.dropbox.com/s/10iu4rslh6pre81/injury_autocoding.zip?dl=1). Once you've upzipped the file, you'll see a directory with a BERT folder, two CSV files with information about the injury codes, and a few empty folders for holding the individual model checkpoints that go into our final ensemble.
+To download a copy of the data directory we reference in our code, including the small base BERT model we fine-tuned to classify the narratives, head [here](https://www.dropbox.com/s/10iu4rslh6pre81/injury_autocoding.zip?dl=1). Once you've upzipped the file, you'll see a directory with a BERT folder, two CSV files with information about the injury codes, and a few empty folders for holding the individual model checkpoints that go into our final ensemble. The next step is will be to put your raw text files in the new directory so that ```src\preprocessing.py``` has something to work with. Your files should be in ```.csv``` format, with the following names and columns:
+
+  ```train.csv```: 'id', 'text', 'event'
+  ```test.csv```: 'id', 'text'
+
+If your narratives don't already have an 'id' column with unique record identifiers, our script will generate one during the preprocessing steps/
