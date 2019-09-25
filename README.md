@@ -23,7 +23,7 @@ The main scripts are the two ```.bat``` files. To fine-tune the base BERT checkp
 ## Data
 To download a copy of the data directory we reference in our code, including the small base BERT model we fine-tuned to classify the narratives, head [here](https://www.dropbox.com/s/10iu4rslh6pre81/injury_autocoding.zip?dl=1). Once you've upzipped the file, you'll see a directory with a BERT folder, two CSV files with information about the injury codes, and a few empty folders for holding the individual model checkpoints that go into our final ensemble. The next step is will be to put your raw text files in the new directory so that ```src\preprocessing.py``` has something to work with. Your files should be in ```.csv``` format, with the following names and columns:
 
-  ```train.csv```: 'id', 'text', 'event'
-  ```test.csv```: 'id', 'text'
+  1. ```train.csv```: 'id', 'text', 'event'
+  2. ```test.csv```: 'id', 'text'
 
 If your narratives don't already have an 'id' column with unique record identifiers, our script will generate one during the preprocessing steps/
