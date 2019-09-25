@@ -1,5 +1,5 @@
 @echo off
-set testfile=test.csv
+set testfile=test.tsv
 set datadir=C:/data/niosh_ifund
 set runlist=(run_1 run_2 run_3 run_4)
 
