@@ -1,10 +1,10 @@
 # Autocoding Injury Narratives with BERT
 This repo contains code for training an ensemble of BERT models to autocode injury narratives. 
 
-## Model
+### Model
 BERT stands for Bidirectional Encoder Representations from Transformers. One of the newer large-scale contextual language models, it's a good baseline for a wide variety of downstream NLP tasks. To learn more about how the base model is trained, check out the paper on [arXiv](https://arxiv.org/abs/1810.04805). To see how folks from Google implemented it in TensorFlow, check out the original [repo](https://github.com/google-research/bert) on GitHub, which we've also included here (but not updated in while, so you may want to pull down a fresh copy).
 
-## Task
+### Task
 Our task here was to classify free-text injury narratives using [OIICS](https://wwwn.cdc.gov/wisards/oiics/Trees/MultiTree.aspx?Year=2012) event codes. The project was for a Kaggle-like competition internal to CDC, which you can read about [here](https://www.cdc.gov/od/science/technology/innovation/innovationfund.htm). In our data, there were 47 classifiable event codes distributed across 7 categories:
 
   1. Violence and other injuries by persons and animals
@@ -26,4 +26,4 @@ To download a copy of the data directory we reference in our code, including the
   1. ```train.csv```: 'id', 'text', 'event'
   2. ```test.csv```: 'id', 'text'
 
-If your narratives don't already have an 'id' column with unique record identifiers, our script will generate one during the preprocessing steps/
+If your narratives don't already have an 'id' column with unique record identifiers, our script will generate one during the preprocessing steps. Also, if you'd like to use our pre-fine-tuned BERT checkpoints to get our ensemble's predictions, replace the ```train_runs``` folder in the original data directory template with the one [here](https://www.dropbox.com/s/3syexlfa3a6uyfm/train_runs.zip?dl=1). 
