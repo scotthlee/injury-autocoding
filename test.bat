@@ -12,7 +12,7 @@ python %cd%/bert/run_classifier.py ^
 --vocab_file=%datadir%/bert_models/uncased_base/vocab.txt ^
 --bert_config_file=%datadir%/bert_models/uncased_base/bert_config.json ^
 --init_checkpoint=%datadir%/train_runs/%%a/model.ckpt-14433 ^
---max_seq_length=33 ^
+--max_seq_length=44 ^
 --output_dir=%datadir%/test_runs/%%a/
 
 rem Running the evaluation script
