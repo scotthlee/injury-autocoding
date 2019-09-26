@@ -1,9 +1,6 @@
 # Autocoding Injury Narratives with BERT
 This repo contains code for training an ensemble of BERT models to autocode injury narratives. 
 
-### Model
-BERT stands for Bidirectional Encoder Representations from Transformers. One of the newer large-scale contextual language models, it's a good baseline for a wide variety of downstream NLP tasks. To learn more about how the base model is trained, check out the paper on [arXiv](https://arxiv.org/abs/1810.04805). To see how folks from Google implemented it in TensorFlow, check out the original [repo](https://github.com/google-research/bert) on GitHub, which we've also included here (but not updated in while, so you may want to pull down a fresh copy).
-
 ### Task
 Building on recent research on autocoding injury narratives, like that in [Measure (2014)](https://www.bls.gov/iif/deep-neural-networks.pdf) and in [Bertke et al. (2016)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4915551/), our task here was to classify free-text injury narratives using [OIICS](https://wwwn.cdc.gov/wisards/oiics/Trees/MultiTree.aspx?Year=2012) event codes. The project was for an internal Kaggle-like competition hosted by [NIOSH](https://www.cdc.gov/niosh/index.htm) at CDC, which you can read more about [here](https://www.cdc.gov/od/science/technology/innovation/innovationfund.htm). In our data, there were 47 classifiable event codes distributed across 7 categories:
 
@@ -16,6 +13,11 @@ Building on recent research on autocoding injury narratives, like that in [Measu
   7. Overexertion and bodily reaction
 
 Events not belonging to one of these categories were marked with with code 99, making for a grand total of 48 event codes. Since each narrative only receives a single code, we formulated the problem as one of multiclass classification.
+
+### Model
+BERT stands for Bidirectional Encoder Representations from Transformers. One of the newer large-scale contextual language models, it's a good baseline for a wide variety of downstream NLP tasks. To learn more about how the base model is trained, check out the paper on [arXiv](https://arxiv.org/abs/1810.04805). To see how folks from Google implemented it in TensorFlow, check out the original [repo](https://github.com/google-research/bert) on GitHub, which we've also included here (but not updated in while, so you may want to pull down a fresh copy). 
+
+For this project, we used an ensemble of 4 separate BERTs as our final classifier. To generate predicted codes for the test narratives, we average the predicted probabilities from the 4 models and then take the highest as the winner. We also tried blending and stacking, because [Kaggle](https://mlwave.com/kaggle-ensembling-guide/), but they didn't give us much gain over simple averaging, and so we went with the latter to reduce computational overhead.
 
 ### Code
 The main scripts are the two ```.bat``` files. To fine-tune the base BERT checkpoint on your own data, train the model with ```train.bat```, and then update the ckeckpoint number in the call to ```bert\run_classifer.py``` in ```test.bat``` to reflect the last checkpoint saved during training. To use our fine-tuned checkpoints to get predictions on your own data, simply run ```test.bat```, leaving the checkpoint number the same. In both cases, you'll want to have run ```src\preprocessing.py``` on your raw text files, which should have the structure outlined in the Data section below. 
