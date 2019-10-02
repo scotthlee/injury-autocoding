@@ -31,6 +31,6 @@ To download a copy of the data directory we reference in our code, including the
 If your narratives don't already have an 'id' column with unique record identifiers, our script will generate one during the preprocessing steps. Also, if you'd like to use our pre-fine-tuned BERT checkpoints to get our ensemble's predictions, replace the ```train_runs``` folder in the original data directory template with the one [here](https://www.dropbox.com/s/3syexlfa3a6uyfm/train_runs.zip?dl=1). 
 
 ### Technical requirements
-For software, our Python (3.x) code uses NumPy, scikit-learn, and pandas, so you'll need the latest versions of those installed. You'll also need whatever's required by BERT, like TensorFlow. 
+For software, our Python (3.x) code uses NumPy, scikit-learn, and pandas, so you'll need the latest versions of those installed. You'll also need whatever's required by BERT, like TensorFlow. See the [requirements file](requirements.txt) for more information.
 
 For hardware, we highly recommend having at least one cuDNN-enabled GPU on your macine. Running inference with our pre-fine-tuned checkpoints should be OK on a CPU unless you have a ton of data, but fine-tuning the base checkpoint on new data might take a super long time without a GPU (we did use an ensemble of 4 separate BERT models, after all). 
