@@ -1,6 +1,6 @@
-nltk=3.4.5
-numpy>=1.17.1
-pandas>=0.25.1
-Keras==2.2.5
-scikit-learn>=0.19.1
-tensorflow>=1.14.0
+nltk
+numpy
+pandas
+Keras
+scikit-learn
+tensorflow
