@@ -1,5 +1,5 @@
 @echo off
-set datadir=C:/data/niosh_ifund
+set datadir=C:/data/niosh_ifund/
 set runlist=(run_1 run_2 run_3 run_4)
 
 rem Preprocessing the text
